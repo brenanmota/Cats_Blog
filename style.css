@@ -15,6 +15,7 @@
   --color-blue-light: hsla(195, 46%, 40%, 1);
 }
 
+
 html,
 body,
 input {
@@ -24,6 +25,12 @@ input {
 body {
   color: var(--color-base-gray);
   font-size: 2.4rem;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
 }
 
 header {
@@ -90,7 +97,7 @@ main {
   margin-bottom: 3.4rem;
 }
 
-.initial {
+.initial, .articles {
   padding: 0 4.2rem;
 }
 
@@ -165,22 +172,16 @@ footer  {
 
 
 @media (min-width: 1024px) {
-  #app {
-    display: grid;
-    grid-template-areas: 
-    "header" "header" "header"
-    "main" "main" "main"
-    "footer" "footer" "footer";
-  
-    height: 100vh;
-  }
-
-  #app header {
-    grid-area: header;
-  }
 
   #app main {
-    grid-area: main;
+    display: grid;
+    
+  }
+
+  .item img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
   }
 
   #app footer {
