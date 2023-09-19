@@ -34,6 +34,9 @@ header {
   width: min(112rem, 100%);
   margin: 0 auto;
   background: var(--color-blue-dark);
+
+ --startY: -100%;
+  animation: move .5s;
 }
 
 header form {
@@ -44,6 +47,7 @@ header form {
   background-color: var(--color-base-white);
   border-radius: 50%;
   padding: .8rem;
+  object-fit: cover;
 }
 
 .input-wrapper label {
@@ -59,7 +63,7 @@ header form {
 
   background-color: var(--color-blue-light);
   border: 0;
-  border-radius: 0.6rem;
+  border-radius: .6rem;
 
   font-size: 1.6rem;
   font-weight: 600;
@@ -77,15 +81,19 @@ header form {
   border-radius: 50%;
 }
 
-.initial {
-  padding: 0 4.2rem;
-
+main {
+  overflow-y: scroll;
 }
 
 .cat {
   width: 100%;
   margin-bottom: 3.4rem;
 }
+
+.initial {
+  padding: 0 4.2rem;
+}
+
 
 button {
   border: 0;
@@ -95,6 +103,10 @@ button {
   margin-top: 1.6rem;
   margin-bottom: 3.4rem;
   cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.1);
 }
 
 .icon {
@@ -112,8 +124,12 @@ button {
 .item {
   display: flex;
   gap: 2.6rem;
-  align-items: self-start;
   margin-bottom: 3.4rem;
+}
+
+.item img:hover {
+  filter: hue-rotate(10deg) contrast(101%) saturate(200%);
+  transform: scale(1.1);
 }
 
 h2 {
@@ -132,8 +148,43 @@ p {
 
 footer  {
   text-align: center;
-  padding: 3rem;
+  padding: 2.6rem;
   font-weight: 600;
   background:var(--color-blue-dark);
   color: var(--color-base-white);
+
+  --startY: 100%;
+  animation: move .5s;
 }
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+
+@media (min-width: 1024px) {
+  #app {
+    display: grid;
+    grid-template-areas: 
+    "header" "header" "header"
+    "main" "main" "main"
+    "footer" "footer" "footer";
+  
+    height: 100vh;
+  }
+
+  #app header {
+    grid-area: header;
+  }
+
+  #app main {
+    grid-area: main;
+  }
+
+  #app footer {
+    grid-area: footer;
+  }
+}
+
