@@ -181,23 +181,26 @@ footer  {
   }
 }
 
-
 @media (min-width: 1120px) {
 
   main {
     display: flex;
     flex-direction: row;
-    max-width: 100%;
+    max-width: fit-content;
+    gap: 1.8rem;
+
+    padding: 4rem 8rem;
   }
 
+  .main-content {
+    max-width: 800px;
+  }
 
-
-
-
-
+  .initial {
+    padding: 0;
+  }
 
   .item img {
-    width: 100%;
     object-fit: cover;
     aspect-ratio: 16/9;
   }
